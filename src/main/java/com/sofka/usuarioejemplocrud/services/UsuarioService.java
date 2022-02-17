@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 //Regla personal: En el servicio los métodos van en Inglés
 /*Para mejorar
 1. Creación de método para buscar usuarios por una inicial
+2. Creación de método para que devuelva los usuarios ordenados por el nombre
 */
 @Service
 public class UsuarioService {
@@ -28,7 +29,6 @@ public class UsuarioService {
     }
     //Obtener todos los usuarios ordenados por el nombre
     public ArrayList<UsuarioModel> getUsuariosNombre(){
-        //return (ArrayList<UsuarioModel>) uRepository.findAll();
         ArrayList<UsuarioModel> uSinOrden = getUsuarios();
         Collections.sort(uSinOrden,new UsuarioModelComparator());
         return uSinOrden;
