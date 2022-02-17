@@ -50,7 +50,7 @@ Se agregó un nuevo usuario, y se confirmó que se realiza el ordenamiento corre
 
 ## PUT
 
-Esta funcionalidad constituye un extra en el CRUD para la actualización de información existente. Adicional, tiene soporte con una excepción personalizada que controla este escenario.
+Esta funcionalidad constituye un extra/mejora en el CRUD para la actualización de información existente. Adicional, tiene soporte con una excepción personalizada que controla este escenario.
 
 - Antes de la actualización
 
@@ -69,4 +69,13 @@ Esta funcionalidad constituye un extra en el CRUD para la actualización de info
 <img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/updateUsuarioEx.JPG" width="800" height="500" title="mainApp">
 
 <img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/updateUsuarioEx2.JPG" width="800" height="250" title="mainApp">
+
+## DELETE
+
+A esta funcionalidad se le agregó el extra/mejora de primero confirmar que el usuario a eliminar exista a través de la misma excepción agregada al PUT.
+
+- Eliminando usuario con id 6
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuario.JPG" width="800" height="500" title="mainApp">
+
 
