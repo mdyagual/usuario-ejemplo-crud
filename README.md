@@ -28,7 +28,7 @@ Se ejecuta el .java que contenga la anotación @SpringBootApplication
 
 <img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/getUsuariosP5.JPG" width="700" height="500" title="mainApp">
 
-## Extras
+## Extras/Mejoras
 
 - Solicitud general pero ordenando alfabéticamente por el nombre
 
@@ -42,5 +42,9 @@ Se agregó un nuevo usuario, y se confirmó que se realiza el ordenamiento corre
 
 <img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/getUsuariosInicial.JPG" width="700" height="500" title="mainApp">
 
+## POST
 
+- Registro de usuario: Como respuesta se obtiene un 200 OK y adicional se devuelve el ingreso nuevo con el id correspondiente
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/postUsuario.JPG" width="700" height="500" title="mainApp">
 
