@@ -48,3 +48,25 @@ Se agregó un nuevo usuario, y se confirmó que se realiza el ordenamiento corre
 
 <img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/postUsuario.JPG" width="700" height="500" title="mainApp">
 
+## PUT
+
+Esta funcionalidad constituye un extra en el CRUD para la actualización de información existente. Adicional, tiene soporte con una excepción personalizada que controla este escenario.
+
+- Antes de la actualización
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/updateUsuario.JPG" width="500" height="500" title="mainApp">
+
+- Actualizando
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/updateUsuario2.JPG" width="700" height="500" title="mainApp">
+
+- Revisando si se dio la actualización
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/updateUsuario3.JPG" width="450" height="500" title="mainApp">
+
+- Funcionalidad de la excepción
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/updateUsuarioEx.JPG" width="800" height="500" title="mainApp">
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/updateUsuarioEx2.JPG" width="800" height="250" title="mainApp">
+
