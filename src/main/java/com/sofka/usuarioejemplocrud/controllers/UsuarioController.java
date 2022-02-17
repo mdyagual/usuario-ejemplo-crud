@@ -16,7 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+/*Para mejorar
+1. Establecer rutas individuales para cada tag independiente del tipo, para un mejor manejo
+2. Creación de queries más específicos para filtrado de información (inicial de letra, prioridad mayor/menor a n)
+3. Comparator para ordenar la consulta general de usuarios por nombre o correo
+*/
 
 //Regla personal: En el controlador los métodos van en español
 @RestController
