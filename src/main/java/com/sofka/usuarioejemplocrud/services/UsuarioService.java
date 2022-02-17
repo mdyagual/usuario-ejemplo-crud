@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.sofka.usuarioejemplocrud.exceptions.UsuarioNoExisteException;
 import com.sofka.usuarioejemplocrud.models.UsuarioModel;
 import com.sofka.usuarioejemplocrud.repositories.UsuarioRepository;
 import com.sofka.usuarioejemplocrud.utils.UsuarioModelComparator;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 /*Para mejorar
 1. Creación de método para buscar usuarios por una inicial
 2. Creación de método para que devuelva los usuarios ordenados por el nombre
+3. Creación de método para que actualice un usuario existente
 */
 @Service
 public class UsuarioService {
@@ -40,13 +42,31 @@ public class UsuarioService {
         return uRepository.save(u);
     }
 
+    //Actualizar usuarios
+    public boolean updateUsuario(UsuarioModel u){   
+        Optional<UsuarioModel> op_u = getById(u.getId());  
+        try{                       
+            if(op_u.isPresent()){                
+                uRepository.save(u);
+                return true;
+            }else{
+                throw new UsuarioNoExisteException("Usuario con id: "+u.getId()+" no existe");
+            }
+            
+        }catch(UsuarioNoExisteException e){   
+            System.out.println(e);         
+            return false;
+        }
+        
+    }
+
     //Obtener usuario por id
     public Optional<UsuarioModel> getById(Long id){
         return uRepository.findById(id);
     }
 
     //Obtener usuario(s) por prioridad
-    public ArrayList<UsuarioModel> getByPrioridad(Integer prioridad){
+    public ArrayList<UsuarioModel> getByPrioridad(Integer prioridad){        
         return uRepository.findByPrioridad(prioridad);
     }
 
@@ -58,13 +78,21 @@ public class UsuarioService {
                                              .collect(Collectors.toList());
         return uInicial;
     }
-
-    //Eliminar usuario por id
-    public boolean deleteUsuario(Long id){
+    
+    //Eliminar usuario por id: Agregación de excepción personalizada y mejora para una eliminación adecuada
+    public boolean deleteUsuario(Long id){    
         try{
-            uRepository.deleteById(id);
-            return true;
-        }catch(Exception e){
+            Optional<UsuarioModel> op_u = getById(id);             
+            if(op_u.isPresent()){
+                uRepository.deleteById(id);
+                return true;
+
+            }else{
+                throw new UsuarioNoExisteException("Usuario con id: "+id+" no existe");
+            }
+            
+        }catch(UsuarioNoExisteException e){   
+            System.out.println(e);         
             return false;
         }
     }
