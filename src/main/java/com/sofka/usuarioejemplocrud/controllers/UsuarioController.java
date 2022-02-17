@@ -4,7 +4,6 @@ package com.sofka.usuarioejemplocrud.controllers;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import com.sofka.usuarioejemplocrud.models.UsuarioModel;
 import com.sofka.usuarioejemplocrud.services.UsuarioService;
 
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 /*Para mejorar
 1. Establecer rutas individuales para cada tag independiente del tipo, para un mejor manejo
 2. Creación de queries más específicos para busqueda de información (buscar usuarios inicial nombre)
-
+3. Mejoras en el método delete con excepciones
+4. Creación de método put para actualización
 */
 
 //Regla personal: En el controlador los métodos van en español
@@ -49,6 +50,20 @@ public class UsuarioController {
         return this.uService.saveUsuario(u);
     }
 
+    @PutMapping(path = "/actualizar")
+    //http://127.0.0.1:8081/usuario/actualizar  
+    public String actualizarUsuario(@RequestBody UsuarioModel u){
+        boolean ok = this.uService.updateUsuario(u);
+        if(ok){
+            return "Usuario actualizado";
+        }else{
+           
+            return "No se pudo actualizar";
+        }
+        
+
+    }
+
     @GetMapping(path = "/{id}")
     //http://127.0.0.1:8081/usuario/id
     public Optional<UsuarioModel> obtenerUsuarioPorId(@PathVariable("id") Long id){
@@ -70,11 +85,13 @@ public class UsuarioController {
     @DeleteMapping(path= "/eliminar/{id}")
     //http://127.0.0.1:8081/usuario/eliminar/id
     public String eliminarPorId(@PathVariable("id") Long id){
+        
         boolean ok = this.uService.deleteUsuario(id);
         if(ok){
             return "Usuario eliminado";
         }else{
-            return "No se pudo eliminar el usuario con id: "+id;
+           
+            return "No se pudo eliminar";
         }
     }
 
