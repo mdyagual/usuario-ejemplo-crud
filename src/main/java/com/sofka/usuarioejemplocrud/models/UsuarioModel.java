@@ -25,7 +25,7 @@ public class UsuarioModel {
     @Column(nullable = false)
     private String nombre="";
 
-    @Pattern(regexp ="([_0-9@])+mail.com", message="Correo debe cumplir el siguiente formato: nombre_(numero)@mail.com")
+    @Pattern(regexp ="([A-z]+[_]+[0-9]+@)+mail.com", message="Correo debe cumplir el siguiente formato: nombre_(numero)@mail.com")
     @Column(unique=true,nullable=false)
     private String email="";
 
