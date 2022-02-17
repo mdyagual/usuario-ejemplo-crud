@@ -12,6 +12,7 @@ import javax.validation.constraints.Pattern;
 1. Establecer validaciones por columna para denotar más coherencia de uso al momento de insertar datos: Done
 2. Definir valores por defectos para que no se generen vacíos o postman los asuma como null.
 3. Establecer restricción del correo para que tenga el '@' y un número para que luzca como un correo: Se instala la dependencia de validación
+4. Clase Comparator para ordenar la consulta general de usuarios por nombre o correo
 */
 
 @Entity
