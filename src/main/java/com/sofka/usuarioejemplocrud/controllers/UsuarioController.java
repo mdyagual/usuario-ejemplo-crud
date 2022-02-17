@@ -2,10 +2,12 @@ package com.sofka.usuarioejemplocrud.controllers;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 
 import com.sofka.usuarioejemplocrud.models.UsuarioModel;
 import com.sofka.usuarioejemplocrud.services.UsuarioService;
+import com.sofka.usuarioejemplocrud.utils.UsuarioModelComparator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 /*Para mejorar
 1. Establecer rutas individuales para cada tag independiente del tipo, para un mejor manejo
-2. Creación de queries más específicos para filtrado de información (inicial de letra, prioridad mayor/menor a n)
+2. Creación de queries más específicos para busqueda de información (buscar usuarios inicial nombre)
 3. Comparator para ordenar la consulta general de usuarios por nombre o correo
 */
 
@@ -30,13 +32,21 @@ public class UsuarioController {
     @Autowired
     UsuarioService uService;
 
-    @GetMapping
-    //http://127.0.0.1:8081/usuario    
+    @GetMapping("/all")
+    //http://127.0.0.1:8081/usuario/all    
     public ArrayList<UsuarioModel> obtenerUsuarios(){
         return uService.getUsuarios();
     }
 
-    @PostMapping
+    @GetMapping("/nombres")
+    //http://127.0.0.1:8081/usuario/ordennombre
+    public ArrayList<UsuarioModel> obtenerUsuariosNombre(){
+        ArrayList<UsuarioModel> uSinOrden = uService.getUsuarios();
+        Collections.sort(uSinOrden,new UsuarioModelComparator());
+        return uSinOrden;
+    }
+
+    @PostMapping("/registrar")
     //http://127.0.0.1:8081/usuario  
     public UsuarioModel guardarUsuario(@RequestBody UsuarioModel u){
         return this.uService.saveUsuario(u);
@@ -52,6 +62,12 @@ public class UsuarioController {
     //http://127.0.0.1:8081/usuario/query?prioridad=5
     public ArrayList<UsuarioModel> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad){
         return this.uService.getByPrioridad(prioridad);
+    }
+
+    @GetMapping("/query")
+    //http://127.0.0.1:8081/usuario/query?inicial=M
+    public ArrayList<UsuarioModel> obtenerUsuariosPorInicial(@RequestParam("inicial") char c){
+        return this.uService.getByInitial(c);
     }
 
     @DeleteMapping(path= "/{id}")
