@@ -36,6 +36,11 @@ public class UsuarioService {
         return uRepository.findByPrioridad(prioridad);
     }
 
+    //Obtener usuario(s) por inicial
+    public ArrayList<UsuarioModel> getByInitial(char c){
+        return uRepository.findByInicialNombre(c);
+    }
+
     //Eliminar usuario por id
     public boolean deleteUsuario(Long id){
         try{
