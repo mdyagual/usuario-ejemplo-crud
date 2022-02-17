@@ -6,11 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 /*Para mejorar: 
-1. Establecer validaciones por columna para denotar más coherencia de uso al momento de insertar datos
-2. Sobrecarga de constructores para definir prioridad por defecto al instanciar si se hacen los registros en el main
-3. Definición de prioridad por defecto
+1. Establecer validaciones por columna para denotar más coherencia de uso al momento de insertar datos: Done
+2. Definir valores por defectos para que no se generen vacíos o postman los asuma como null.
+3. Establecer restricción del correo para que tenga el '@' y un número para que luzca como un correo: Se instala la dependencia de validación
 */
 
 @Entity
@@ -22,13 +23,14 @@ public class UsuarioModel {
     private Long id;
 
     @Column(nullable = false)
-    private String nombre;
+    private String nombre="";
 
+    @Pattern(regexp ="([_0-9@])+mail.com", message="Correo debe cumplir el siguiente formato: nombre_(numero)@mail.com")
     @Column(unique=true,nullable=false)
-    private String email;
+    private String email="";
 
     @Column(nullable=false)
-    private Integer prioridad;
+    private Integer prioridad=0;
 
 
     //Getters ans setters    
