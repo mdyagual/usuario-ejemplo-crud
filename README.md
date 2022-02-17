@@ -43,6 +43,7 @@ Se agregó un nuevo usuario, y se confirmó que se realiza el ordenamiento corre
 <img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/getUsuariosInicial.JPG" width="700" height="500" title="mainApp">
 
 ## POST
+A esta funcionalidad se le agregó el extra/mejora de establecer un formato para el correo electrónico por medio de regex.
 
 - Registro de usuario: Como respuesta se obtiene un 200 OK y adicional se devuelve el ingreso nuevo con el id correspondiente
 
@@ -74,8 +75,27 @@ Esta funcionalidad constituye un extra/mejora en el CRUD para la actualización 
 
 A esta funcionalidad se le agregó el extra/mejora de primero confirmar que el usuario a eliminar exista a través de la misma excepción agregada al PUT.
 
-- Eliminando usuario con id 6
+- Eliminando usuario con id 14
 
-<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuario.JPG" width="800" height="500" title="mainApp">
+Antes de la eliminación 
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuario.JPG" width="700" height="500" title="mainApp">
+
+Eliminando
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuario2.JPG" width="700" height="500" title="mainApp">
+
+Confirmando que ya no existe
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuario3.JPG" width="700" height="500" title="mainApp">
+
+
+- Funcionalidad de la excepción: No existe el usuario con id 10
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuarioEx.JPG" width="700" height="300" title="mainApp">
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuarioEx2.JPG" width="700" height="150" title="mainApp">
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuario3.JPG" width="700" height="500" title="mainApp">
 
 
