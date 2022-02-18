@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import javax.validation.ConstraintViolationException;
 
-import com.sofka.usuarioejemplocrud.exceptions.CorreoInvalidoException;
+
 import com.sofka.usuarioejemplocrud.exceptions.UsuarioNoExisteException;
 import com.sofka.usuarioejemplocrud.models.UsuarioModel;
 import com.sofka.usuarioejemplocrud.repositories.UsuarioRepository;
