@@ -17,7 +17,7 @@ import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="tblusuario")
-public class UsuarioModel {
+public class UsuarioModel{
     @Id //Define que va a ser la pk de la tabla
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique=true,nullable=false)
