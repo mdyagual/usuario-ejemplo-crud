@@ -26,7 +26,7 @@ public class UsuarioModel{
     @Column(nullable = false)
     private String nombre="";
 
-    @Pattern(regexp ="([A-z]+[_]+[0-9]+@)+mail.com", message="Correo debe cumplir el siguiente formato: nombre_(numero)@mail.com")
+    @Pattern(regexp ="([A-z]+[_]+[0-9]+@)+mail.com",message="Correo debe cumplir el siguiente formato: nombre_(numero)@mail.com") //
     @Column(unique=true,nullable=false)
     private String email="";
 
@@ -58,6 +58,11 @@ public class UsuarioModel{
     }
     public void setPrioridad(Integer prioridad) {
         this.prioridad = prioridad;
+    }
+    @Override
+    public String toString() {
+        //return "{email=" + email + ", id=" + id + ", nombre=" + nombre + ", prioridad=" + prioridad + "}";
+        return "{\n\tid: " + id + ",\n\tnombre: " + nombre + ",\n\temail: " + email + ",\n\tprioridad: " + prioridad + "\n}";
     }
 
     

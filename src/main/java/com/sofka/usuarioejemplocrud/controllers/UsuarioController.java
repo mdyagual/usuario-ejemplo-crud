@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.ConstraintViolationException;
+
 import com.sofka.usuarioejemplocrud.exceptions.CorreoInvalidoException;
 import com.sofka.usuarioejemplocrud.models.UsuarioModel;
 import com.sofka.usuarioejemplocrud.services.UsuarioService;
@@ -48,13 +50,16 @@ public class UsuarioController {
 
     @PostMapping("/registrar")
     //http://127.0.0.1:8081/usuario  
-    public UsuarioModel guardarUsuario(@RequestBody UsuarioModel u){
+    public String guardarUsuario(@RequestBody UsuarioModel u){
         try {
-            return this.uService.saveUsuario(u);
-        } catch (CorreoInvalidoException e) {
-            e.printStackTrace();
-            return u;
+            this.uService.saveUsuario(u);
+            return u.toString();
+        } catch (ConstraintViolationException e) {
+            return e.toString();
+            
+            
         }
+        
     }
 
     @PutMapping(path = "/actualizar")

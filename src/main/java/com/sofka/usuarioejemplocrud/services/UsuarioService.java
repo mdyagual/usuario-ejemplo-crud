@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.validation.ConstraintViolationException;
+
 import com.sofka.usuarioejemplocrud.exceptions.CorreoInvalidoException;
 import com.sofka.usuarioejemplocrud.exceptions.UsuarioNoExisteException;
 import com.sofka.usuarioejemplocrud.models.UsuarioModel;
@@ -39,7 +41,7 @@ public class UsuarioService {
 
 
     //Guardar usuarios
-    public UsuarioModel saveUsuario(UsuarioModel u) throws CorreoInvalidoException{
+    public UsuarioModel saveUsuario(UsuarioModel u) throws ConstraintViolationException{
         return uRepository.save(u);        
          
     }
