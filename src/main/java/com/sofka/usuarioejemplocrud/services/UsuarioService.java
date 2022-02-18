@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.sofka.usuarioejemplocrud.exceptions.CorreoInvalidoException;
 import com.sofka.usuarioejemplocrud.exceptions.UsuarioNoExisteException;
 import com.sofka.usuarioejemplocrud.models.UsuarioModel;
 import com.sofka.usuarioejemplocrud.repositories.UsuarioRepository;
@@ -38,8 +39,9 @@ public class UsuarioService {
 
 
     //Guardar usuarios
-    public UsuarioModel saveUsuario(UsuarioModel u){
-        return uRepository.save(u);
+    public UsuarioModel saveUsuario(UsuarioModel u) throws CorreoInvalidoException{
+        return uRepository.save(u);        
+         
     }
 
     //Actualizar usuarios
