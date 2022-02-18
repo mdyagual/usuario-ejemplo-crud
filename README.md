@@ -3,7 +3,9 @@ Implementación básica guiada de un CRUD para luego establecer mejoras.
 Esta práctica consiste en la elaboración de un CRUD con funcionalidades básicas para entender el correcto funcionamiento de Springboot. Luego, se procede a establecer mejorar para hacer el CRUD un poco más robusto.
 
 # Tecnologías utilizadas
-- Aqui voy a listar las tecnologías utilizadas
+- Visual Studio Code: 1.64.2
+- Springboot: 2.6.3
+- Java: 11
 
 # Inicio del programa
 Se ejecuta el .java que contenga la anotación @SpringBootApplication
@@ -43,11 +45,18 @@ Se agregó un nuevo usuario, y se confirmó que se realiza el ordenamiento corre
 <img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/getUsuariosInicial.JPG" width="700" height="500" title="mainApp">
 
 ## POST
-A esta funcionalidad se le agregó el extra/mejora de establecer un formato para el correo electrónico por medio de regex.
+
+A esta funcionalidad se le agregó el extra/mejora de establecer un formato para el correo electrónico por medio de regex. Así mismo utilizando excepciones, se controla este comportamiento
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/postUsuarioRegex.JPG" width="900" height="70" title="mainApp">
+
+- Controlando con la excepción que se cumpla lo del formato
+
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/postUsuarioRegexEx.JPG" width="900" height="500" title="mainApp">
 
 - Registro de usuario: Como respuesta se obtiene un 200 OK y adicional se devuelve el ingreso nuevo con el id correspondiente
 
-<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/postUsuario.JPG" width="700" height="500" title="mainApp">
+<img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/postUsuario.JPG" width="900" height="500" title="mainApp">
 
 ## PUT
 
@@ -98,4 +107,10 @@ Confirmando que ya no existe
 
 <img src="https://github.com/mdyagual/usuario-ejemplo-crud/blob/master/ss/deleteUsuario3.JPG" width="700" height="500" title="mainApp">
 
+# Observación
+- Los ejemplos demostrados en las capturas pueden no existir por los ajustes que ha venido teniendo el código conforme se implementan o prueban las mejoras. Para validación de funcionamiento de todos los puntos mencionados, se recomienda hacer un get con el endpoint http://localhost:8081/usuario/all para saber los registros disponibles si se tiene acceso a la base de datos original. Caso contrario, crear una nueva base de datos e ir ingresando información para probar todas las funcionalidades validadas en las capturas.
 
+# Conclusiones
+- CRUD repository es útil para tener un primer acercamiento a las API con Springboot. Sin embargo, para APIs más profesionales, se recomienda usar JPA Repository en conjunto con Hibernate
+- Springboot es el framework que facilita el uso de Spring, haciendo que el programador sólo se preocupe por implementar utilidad, abstrayendo los procesos que involucran comandos de SQL.
+- La inyección de dependencias es el corazón de springboot y junto con una buena estructura de paquetes, da origen a proyectos robustos y de fácil gestión.
